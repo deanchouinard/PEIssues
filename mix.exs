@@ -4,6 +4,7 @@ defmodule Issues.Mixfile do
   def project do
     [app: :issues,
      version: "0.0.1",
+     escript: escript_config,
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -31,5 +32,9 @@ defmodule Issues.Mixfile do
       { :httpoison, "~> 0.8" },
       { :poison,    "~> 1.5" }
     ]
+  end
+
+  defp escript_config do
+    [ main_module: Issues.CLI ]
   end
 end
